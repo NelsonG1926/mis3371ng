@@ -48,22 +48,25 @@ Description: Patient registration form for MIS 3371
 
     <table>
      
+        <!--Name Fields-->
      <tr>
-      <td>First Name:</td>  
+        <td class="form-label">First Name:</td>
       <td><input type="text" name="first_name" maxlength="30" required></td> 
        
-        <td>Middle Initial:</td>
+      <td class="form-label">Middle Initial:</td>
         <td><input type="text" name="middle_initial" maxlength="1"></td>
         </tr>
 
+
         <tr>
-        <td>Last Name:</td>
+            <td class="form-label">Last Name:</td>
         <td><input type="text" name="last_name" maxlength="30" required></td>
         </tr>
 
+        <!--Personal Information Fields-->
 
        <tr>
-        <td>Date of Birth:</td>
+        <td class="form-label">Date of Birth:</td>
         <td><input type="date" name="date_of_birth" required></td>
         
         <td>Social Security Number:</td>
@@ -86,6 +89,8 @@ Description: Patient registration form for MIS 3371
         </td>
         </tr>
 
+
+<!--Address Fields-->
         <tr>
         <td>Address Line 1:</td>
         <td><input type="text" name="address_line1" maxlength="30" required></td>
@@ -131,6 +136,7 @@ Description: Patient registration form for MIS 3371
             <option value="NE">NE</option>
             <option value="NV">NV</option>
             <option value="NH">NH</option>
+            <option value="NJ">NJ</option>
             <option value="NM">NM</option>
             <option value="NY">NY</option>
             <option value="NC">NC</option>
@@ -151,6 +157,8 @@ Description: Patient registration form for MIS 3371
             <option value="WV">WV</option>
             <option value="WI">WI</option>
             <option value="WY">WY</option>
+            <option value="DC">DC</option>
+            <option value="PR">PR</option>
         </select>
             </td>
 
@@ -167,7 +175,7 @@ Description: Patient registration form for MIS 3371
     </tr>
 
     <tr>
-     <td>Email Address:</td>
+        <td class="form-label">Email Address:</td>
      <td>
         <input type="email"
         name="email"
@@ -176,6 +184,7 @@ Description: Patient registration form for MIS 3371
      </td>   
      </tr>
 
+     <!--Medical Information Field-->
      <tr>
      <td>Vaccinated:</td>
         <td colspan="5">
@@ -228,6 +237,7 @@ Description: Patient registration form for MIS 3371
         </tr>
 
     
+        <!--Account Field-->
 
         <tr>
         <td>User ID:</td>
