@@ -49,12 +49,13 @@ Description: Patient registration form for MIS 3371
      
      <tr>
       <td>First Name:</td>  
-      <td><input type="text" name="first_name" maxlength="30 required></td> 
+      <td><input type="text" name="first_name" maxlength="30" required></td> 
        
         <td>Middle Initial:</td>
         <td><input type="text" name="middle_initial" maxlength="1"></td>
         </tr>
 
+        <tr>
         <td>Last Name:</td>
         <td><input type="text" name="last_name" maxlength="30" required></td>
         </tr>
@@ -62,7 +63,7 @@ Description: Patient registration form for MIS 3371
 
        <tr>
         <td>Date of Birth:</td>
-        <td><input type="date" name="date_of_birth required"></td>
+        <td><input type="date" name="date_of_birth" required></td>
         
         <td>Social Security Number:</td>
         <td>
@@ -89,12 +90,12 @@ Description: Patient registration form for MIS 3371
         <td><input type="text" name="address_line1" maxlength="30" required></td>
 
         <td>Address Line 2:</td>
-        <td><input type="text" name="address_line2" maxlenght="30"></td>
+        <td><input type="text" name="address_line2" maxlength="30"></td>
         </tr>
 
         <tr>
             <td>City:</td>
-            <td><input type="text name="city" maxlength="30" required></td>
+            <td><input type="text" name="city" maxlength="30" required></td>
 
         <td>State:</td>
         <td>
@@ -158,7 +159,7 @@ Description: Patient registration form for MIS 3371
         name="zip_code"
         maxlength="10"
         pattern="\d{5}(-\d{4})?"
-        placeholder="12345 or 12345=6789"
+        placeholder="12345 or 12345-6789"
         required>
 
     </td>
@@ -174,7 +175,8 @@ Description: Patient registration form for MIS 3371
      </td>   
      </tr>
 
-     <tr>Vaccinated:</td>
+     <tr>
+     <td>Vaccinated:</td>
         <td colspan="5">
      <input type="radio" name="vaccinated" value="Y" required> Yes
       <input type="radio" name="vaccinated" value="N"> No
@@ -214,13 +216,17 @@ Description: Patient registration form for MIS 3371
     </tr>
 
  <tr>
-    <td>Checkbox Selection:</td>
+    <td>Current Symptoms:</td>
     <td colspan="5">
         <input type="checkbox" name="feel_fever" value="Y"> Fever
         <input type="checkbox" name="feel_cough" value="Y"> Cough
         <input type="checkbox" name="feel_shortness_of_breath" value="Y"> Shortness of Breath
         <input type="checkbox" name="feel_fatigue" value="Y"> Fatigue
         <input type="checkbox" name="feel_headache" value="Y"> Headache
+        </td>
+        </tr>
+
+    
 
         <tr>
         <td>User ID:</td>
