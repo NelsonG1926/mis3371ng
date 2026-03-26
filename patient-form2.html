@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+Program Name: patient-form.html
+Author: Nelson Guevara
+Date Created: 2/25/26
+Date Last edited: 3/26/26
+Version: 2.0
+Description: Patient registration form-assignment2 for MIS 3371
+-->
+
+
+<meta charset ="UTF-8">
+<title>Guevara Medical Center - Patient Registration</title>
+<link rel="stylesheet" href="style.css">
+<script src="form-validation.js"></script>
+
+ <script>
+    function displayDate(){
+        const today = new Date();
+        const options = {
+            weekday: 'long',
+            year:'numeric',
+            month: 'long',
+            day:'numeric',
+        };
+        document.getElementById("currentDate").innerHTML =
+        today.toLocaleDateString("en-US", options);  
+        
+    } 
+    function setDateLimits(){
+        var today = new Date();
+        var maxDate = today.toISOString().split("T")[0];
+        var minDate = new Date();
+        minDate.setFullYear(today.getFullYear() - 120);
+        var minDateString = minDate.toISOString().split("T")[0];
+        document.getElementById("dob").max = maxDate;
+        document.getElementById("dob").min = minDateString;
+    }
+    </script>
+    
+    </head>
+
+    <body onload="displayDate(); setDateLimits();">
+
+    <div id="header">
+        <img src="medicallogo.png" alt="Medical Center Logo" width="100">
+        <h1> Guevara Medical Center</h1>
+        <p>Today is: <span id="currentDate"></span></p>
+    </div>
+
+    
+    <div id="wrapper">
+        <div id="main">
+
+    
+
+    <h2> Basic Patient Information</h2>
+    <p> Fields marked with an asterisk (*) are required.</p>    
+
+    <form name="patientForm" onsubmit="return false;">
+
+    <table>
+    
+     
+        <!--Name Fields-->
+     <tr>
+        <td colspan="4" class="section-header">Personal Information</td>
+     </tr>
+
+        <tr>
+            <td class="form-label">First Name:*</td>
+      <td>
+        <input type="text" name="first_name" id="first_name" maxlength="30" required title="First name is required. Letters, apostrophes, and dashes only. Between 1 and 30 characters."
+        pattern="[A-Za-z'-]{1,30}"
+        placeholder="Amy">
+        <span class="error-message" id="firstNameError"></span>
+      </td>
+       
+      <td class="form-label">Middle Initial:</td>
+        <td><input type="text" name="middle_initial" id="middle_initial" maxlength="1" title="Optional. One letter only, no numbers."
+            pattern="[A-Za-z]"
+            placeholder="A">
+        <span class="error-message" id="middleInitialError"></span>
+        </td>
+        </tr>
+
+
+        <tr>
+            <td class="form-label">Last Name:*</td>
+            <td colspan="3">
+        <td><input type="text" name="last_name" id="last_name" maxlength="30" required title="Last Name is required. Letters, apostrophes, dashes allowed. NUmbers 2-5 ok for suffixes like the 'the third'. 1 to 30 characters."
+            pattern="[A-Za-z'\-2-5]{1,30}"
+            placeholder="Nelson">
+        <span class="error-message" id="lastNameError"></span>
+        </td>
+        </tr>
+
+        <!--Personal Information Fields-->
+
+       <tr>
+        <td class="form-label">Date of Birth:</td>
+        <td><input type="date" name="date_of_birth" id="dob" required title="Enter your date of birth. Cannot be today or in the future. Cannot be more than 120 years ago.">
+        <span class="error-message" id="dateOfBirthError"></span>
+        </td>
+
+        <td class="form-label">Social Security Number:</td>
+        <td>
+            <input type="password"
+            id="ssn"
+            name="ssn"
+            maxlength="11"
+            placeholder="123-45-6789"
+            required title="Enter your Social Security Number. Format 123-45-6789. This field is hidden for security reasons."
+            pattern="\d{3}-\d{2}-\d{4}">
+        <span class="error-message" id="ssnError"></span>
+
+        </td>
+        </tr>  
+  
+  <tr>
+    <td class="form-label">Gender: *</td>
+    <td colspan="3">
+        <input type="radio" name="gender" value="Male" required title="Select your gender"> Male 
+        <input type="radio" name="gender" value="Female" title="Select your gender"> Female
+        <input type="radio" name="gender" value="Other" title="Select your gender"> Other
+        <span class="error-message" id="genderError"></span>
+        </td>
+        </tr>
+
+
+<!-- Contact Information Fields-->
+
+        <tr>
+        <td colspan="4" class="section-header">Contact Information</td>
+     </tr>
+     <tr>
+        <td class="form-label"> Email <Address>*</td>
+            <td colspan="3">
+        <input type="email"
+        name="email"
+        id="email"
+        maxlength="50"
+        required title="Enter a valid email address. Example: name@domain.com"
+        pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\.[a-zA-Z]{2,}"
+        placeholder="youremail@domain.com">
+        <span class="error-message" id="emailError"></span>
+        </td>
+
+        </tr>
+        <tr>
+            <td class="form-label">Phone Number:*</td>
+            <td colspan="3">
+        <input type="text"
+        id="phone_number"
+        name="phone_number"
+        maxlength="12"
+        required title="Enter a valid phone number. Example: 123-456-7890"
+        pattern="\d{3}-\d{3}-\d{4}"
+        placeholder="123-456-7890">
+        <span class="error-message" id="phoneError"></span>
+            </td>
+        </tr>
+
+<!--Address Fields-->
+        <tr>
+            <td colspan="4" class="section-header">Address Information</td>
+        </tr>
+        <tr>
+            <td class="form-label">Address Line 1:*</td>
+            <td><input type="text" name="address_line1" id="address1" maxlength="30" required title="Enter your street adress. Between 2 and 30 characters."
+                pattern=".{2,30}"
+                placeholder="123 Main St">
+            <span class="error-message" id="addressLine1Error"></span>
+            </td>
+        
+        
+            <td class="form-label">Address Line 2:</td>
+            <td>
+                <input type="text" name="address2" id="address2" maxlength="30" title="Optional. Apartment,suite, or unit number. If entered must be between 2 and 30 character."
+                pattern=".{2,30}"
+                placeholder="Apt 67A">  
+                <span class="error-message" id="addressLine2Error"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="form-label">City:*</td>
+            <td><input type="text" name="city" id="city" maxlength="30" required title="Enter your city name. Between 2 and 30 characters."
+                pattern=".{2,30}"
+                placeholder="Houston">
+                <span class="error-message" id="cityError"></span>
+            </td>
+
+        <td class="form-label">State:*</td>
+        <td>
+         <select name="state" id="state" required title ="Select your state. You must select from the dropdown list.">
+
+            <option value="">Select State</option>
+            <option value="AL">AL</option>
+            <option value="AK">AK</option>
+            <option value="AZ">AZ</option>
+            <option value="AR">AR</option>
+            <option value="CA">CA</option>
+            <option value="CO">CO</option>
+            <option value="CT">CT</option>
+            <option value="DE">DE</option>
+            <option value="FL">FL</option>
+            <option value="GA">GA</option>
+            <option value="HI">HI</option>
+            <option value="ID">ID</option>
+            <option value="IL">IL</option>
+            <option value="IN">IN</option>
+            <option value="IA">IA</option>
+            <option value="KS">KS</option>
+            <option value="KY">KY</option>
+            <option value="LA">LA</option>
+            <option value="ME">ME</option>
+            <option value="MD">MD</option>
+            <option value="MA">MA</option>
+            <option value="MI">MI</option>
+            <option value="MN">MN</option>
+            <option value="MS">MS</option>
+            <option value="MO">MO</option>
+            <option value="MT">MT</option>
+            <option value="NE">NE</option>
+            <option value="NV">NV</option>
+            <option value="NH">NH</option>
+            <option value="NJ">NJ</option>
+            <option value="NM">NM</option>
+            <option value="NY">NY</option>
+            <option value="NC">NC</option>
+            <option value="ND">ND</option>
+            <option value="OH">OH</option>
+            <option value="OK">OK</option>
+            <option value="OR">OR</option>
+            <option value="PA">PA</option>
+            <option value="RI">RI</option>
+            <option value="SC">SC</option>
+            <option value="SD">SD</option>
+            <option value="TN">TN</option>
+            <option value="TX">TX</option>
+            <option value="UT">UT</option>
+            <option value="VT">VT</option>
+            <option value="VA">VA</option>
+            <option value="WA">WA</option>
+            <option value="WV">WV</option>
+            <option value="WI">WI</option>
+            <option value="WY">WY</option>
+            <option value="DC">DC</option>
+            <option value="PR">PR</option>
+        </select>
+        <span class="error-message" id="stateError"></span>
+            </td>
+        </tr>
+
+        <tr>
+
+       <td class="form-label">Zip Code:*</td>
+       <td colspan="3">
+        <input type="text"
+        id="zip"
+        name="zip_code"
+        maxlength="10"
+        required title="Enter your zip code. 5 digits or zip+4 format allowed."
+        placeholder="12345 or 12345-6789"
+        pattern="\d{5}(-\d{4})?">
+        <span class="error-message" id="zipError"></span>
+    
+
+    </td>
+    </tr>
+
+     <!--Medical Information Field-->
+     <tr>
+     <td class="form-label">Vaccinated:*</td>
+        <td colspan="3">
+     <input type="radio" name="vaccinated" value="Y" required title="Select yes if you have been vaccinated."> Yes
+      <input type="radio" name="vaccinated" value="N" title="Select no if you have not been vaccinated."> No
+      <span class="error-message" id="vaccinatedError"></span>
+     </td>
+     </tr>
+
+     <tr>
+      <td class="form-label">Insurance:*</td> 
+      <td colspan="3">
+        <input type="radio" name="insurance" value="Y" required title="Select yes if you have insurance."> Yes
+        <input type="radio" name="insurance" value="N" title="Select no if you do not have insurance."> No
+        <span class="error-message" id="insuranceError"></span>
+      </td>
+     </tr>
+
+     <tr>
+     <td class="form-label">Pain Level (1-10):</td>
+     <td colspan="3">
+     <span>1</span>
+     <input type="range" name="pain_level" min="1" max="10" value="1" title="Drag the slider to indicate  your pain level. 1 = no pain, 10 = severe pain."
+     oninput="updatePainLevelValue(this.value)">
+     <span id="pain_display">1</span>
+     <span>10</span>
+     </td>
+     </tr>
+
+     <tr>
+     <td class="form-label">Medical Information:</td>
+     <td colspan="3">
+        <textarea name="medical_history"
+        id="medical_history"
+        maxlength="500"
+        rows="4"
+        cols="50"
+        title = "Optional. Enter any relevant medical history or information you would want us to know about. Please do not use quoatation marks."
+        placeholder="Describe any relevant medical history or information here. Maximum 500 characters.">
+    </textarea>
+    </td>
+    </tr>
+
+    <tr>
+    <td></td>
+    </tr>
+
+ <tr>
+    <td>Current Symptoms:</td>
+    <td colspan="5">
+        <input type="checkbox" name="feel_fever" value="Y" title="Check this if you currently have a fever."> Fever
+        <input type="checkbox" name="feel_cough" value="Y" title="Check this if you currently have a cough."> Cough
+        <input type="checkbox" name="feel_shortness_of_breath" value="Y" title="Check this if you currently have shortness of breath."> Shortness of Breath
+        <input type="checkbox" name="feel_fatigue" value="Y" title="Check this if you currently have fatigue."> Fatigue
+        <input type="checkbox" name="feel_headache" value="Y" title="Check this if you currently have a headache."> Headache
+        </td>
+        </tr>
+
+    
+        <!--Account Field-->
+
+        <tr>
+            <td colspan="4" class="section-header">Account Information</td>
+        </tr>
+
+        <tr>
+        <td class="form-label">User ID:*</td>
+        <td colspan="3">
+        <input type="text"
+        name="user_id"
+        id="user_id"
+        minlength="5"
+        maxlength="30"
+        required
+        title="Choose a user ID. Must be between 5 and 30 characters. Must start with a letter. Letters, numbers, underscores and dashes only. No spaces are allowed. Will turn lowercase."
+        pattern="[A-Za-z][A-Za-z0-9_\-]{4,29}"
+        placeholder="nelson_1926"
+        oninput="checkUserID()">
+        <span class="error-message" id="userIdError"></span>
+        </td>
+        </tr>
+
+        <tr>
+        <td class="form-label">Password:*</td>
+        <td>
+        <input type="password"
+        id="password"
+        name="password"
+        minlength="8"
+        maxlength="30"
+        required
+        title="Password must be 8 to 30 characters. Must have atleast 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character. No quotation marks allowed."
+        placeholder="MyPassword1!"
+        oninput="checkpassword()">
+        <span class="error-message" id="passwordError"></span>
+        </td>
+
+        <td class="form-label">Re-enter Password:*</td>
+        <td>
+            <input type="password"
+            id="confirm_password"
+            name="confirm_password"
+            minlength="8"
+            maxlength="30"
+            required
+            title="Re-enter your password exactly as you entered it before."
+            placeholder="MyPassword1!"
+            oninput="checkPasswordMatch()">
+            <span class="error-message" id="confirmPasswordError"></span>
+
+   </td>
+   </tr>
+
+   <!--Submit and Reset Buttons-->
+
+   <tr>
+    <td colspan="4" align="center">
+        <br>
+        <input type="reset" value="CLEAR AND START OVER" onclick="clearReviewPanel1()">
+        <input type ="button" value="REVIEW" onclick="showReview()">
+        <input type="button" value="SUBMIT" onclick="submitForm()">
+    </td>
+   </tr>
+
+</table>
+</form>
+ </div> <!--Closes main-->
+
+ <!--Review Panel-->
+ <div id="review_panel">
+    <h2>Please review your information</h2>
+    <p id="review_msg">Click REVIEW to see your information</p>
+    <table id="review_table">
+        <tr>
+           <th>Field</th>
+           <th>Value</th>
+           <th>Status</th>
+        </tr>
+        <tr>
+              <td>Full Name</td>
+              <td id="review_name"></td>
+              <td id="review_name_status"></td>
+        </tr>
+        <tr>
+            <td>Date of Birth</td>
+            <td id="review_dob"></td>
+            <td id="review_dob_status"></td>
+        </tr>
+        <tr>
+            <td>Social Security Number</td>
+            <td id="review_ssn"></td>
+            <td id="review_ssn_status"></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td id="review_gender"></td>
+            <td id="review_gender_status"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td id="review_email"></td>
+            <td id="review_email_status"></td>
+        </tr>
+        <tr>    
+            <td>Phone Number</td>
+            <td id="review_phone"></td>
+            <td id="review_phone_status"></td>
+        </tr>
+        <tr>    
+            <td>Address</td>
+            <td id="review_address"></td>
+            <td id="review_address_status"></td>
+        </tr>
+        <tr>    
+            <td>Vaccinated</td>
+            <td id="review_vaccinated"></td>
+            <td id="review_vaccinated_status"></td>
+        </tr>
+        <tr>    
+            <td>Insurance</td>
+            <td id="review_insurance"></td>
+            <td id="review_insurance_status"></td>
+        </tr>
+        <tr>    
+            <td>Pain Level</td>
+            <td id="review_pain"></td>
+            <td id="review_pain_status"></td>       
+        </tr>
+        <tr>    
+            <td>Medical Information</td>
+            <td id="review_medical"></td>
+            <td id="review_medical_status"></td>
+        </tr>
+        <tr>    
+            <td>Current Symptoms</td>
+            <td id="review_symptoms"></td>
+            <td id="review_symptoms_status"></td>   
+        </tr>
+        <tr>    
+            <td>User ID</td>
+            <td id="review_user_id"></td>
+            <td id="review_user_id_status"></td>
+        </tr>
+        <tr>    
+            <td>Password</td>
+            <td id="review_password"></td>
+            <td id="review_password_status"></td> 
+        </tr>
+    </table>
+    
+    <br>
+ <div id="review_summary"></div>
+    </div>
+
+</div>
+
+ <div id="footer">
+    <p>Guevara Medical Center</p>
+    <p>PO Box 19268, Houston, TX 77049</p>
+    <button>Contact Us!</button>
+ </div>
+
+    </body>
+</html>
