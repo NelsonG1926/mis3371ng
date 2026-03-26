@@ -122,7 +122,7 @@ function showReview() {
   var painLevel = document.getElementById("pain_level").value;
   var medHistory = document.getElementById("medical_history").value.trim();
 
-  var userID = document.getElementById("user_id").value.trim();
+  var userId = document.getElementById("user_id").value.trim();
   userId=userId.toLowerCase();
   document.getElementById("user_id").value = userId;
 
