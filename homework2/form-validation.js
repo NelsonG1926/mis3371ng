@@ -141,7 +141,7 @@ function showReview() {
         }
     }
     var fullName = firstName;
-    if (middleInitial !="") fullName += " " + middleName;
+    if (middleName !="") fullName += " " + middleName;
     fullName += " " + lastName;
 
     var nameOk = true;
@@ -262,7 +262,7 @@ var histDisplay = medHistory == "" ? "(No medical history provided)" : medHistor
     var userIdErrorMessage = "";
     if (userId == "") {
         userIdErrorMessage = "User ID is required.";
-    } else if (userID.length < 5) {
+    } else if (userId.length < 5) {
         userIdErrorMessage = "User ID must be at least 5 characters long.";
     } else if (!/^[a-z][a-z09_\-]{4,29}$/.test(userId)){
         userIdErrorMessage = "User ID must start with a letter and can only contain lowercase letters, numbers, underscores, and hyphens.";
