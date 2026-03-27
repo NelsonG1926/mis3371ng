@@ -149,13 +149,13 @@ function showReview() {
     if (firstName == "" || lastName == "") {
         nameOk = false;
         nameErrorMessage = "First and last name are required.";
-    } else if (!/^[A-Za-z'\-]{1,30}+$/.test(firstName)) {
+    } else if (!/^[A-Za-z-]{1,30}$/.test(firstName)) {
         nameOk = false;
-        nameErrorMessage = "First name can only contain letters, apostrophes, and hyphens.";
+        nameErrorMessage = "First name can only contain letters.";
     }
-    else if (!/^[A-Za-z'\-]{1,30}+$/.test(lastName)) {
+    else if (!/^[A-Za-z-]{1,30}$/.test(lastName)) {
         nameOk = false;
-        nameErrorMessage = "Last name can only contain letters, apostrophes, and hyphens.";
+        nameErrorMessage = "Last name can only contain letters.";
     }
     fillRow('review_name', 'review_name_status', fullName, nameOk, nameErrorMessage);
 
