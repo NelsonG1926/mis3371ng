@@ -11,7 +11,7 @@ function updatePainLevelValue(val) {
 
 function checkUserID()  {
     var field=document.getElementById("user_id");
-    var errorMessage=document.getElementById("userIDError");
+    var errorMessage=document.getElementById("userIdError");
     var value=field.value;
 
     errorMessage.innerHTML = "";
