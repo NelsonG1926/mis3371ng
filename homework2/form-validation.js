@@ -264,7 +264,7 @@ var histDisplay = medHistory == "" ? "(No medical history provided)" : medHistor
         userIdErrorMessage = "User ID is required.";
     } else if (userId.length < 5) {
         userIdErrorMessage = "User ID must be at least 5 characters long.";
-    } else if (!/^[a-z][a-z09_\-]{4,29}$/.test(userId)){
+    } else if (!/^[a-z][a-z0-9_\-]{4,29}$/.test(userId)){
         userIdErrorMessage = "User ID must start with a letter and can only contain lowercase letters, numbers, underscores, and hyphens.";
     } else {
         userIdOk = true;
