@@ -120,6 +120,23 @@ function validateEmail() {
     }
     return true;
 }
+function validatePhone() {
+    var phone = document.getElementById("phone_number").value;
+    var err = document.getElementById("phoneError");
+    err.innerHTML = "";
+
+    if (phone.length == 0) {
+        err.innerHTML = "Phone number is required.";
+        return false
+    }
+    if (!/^\d{3}-\d{3}-\d{4}$/.test(phone)) {
+        err.innerHTML = "Phone number must be in 123-456-6789 format."
+        return false
+    }
+     return true; 
+}
+
+        
 
 function checkUserID()  {
     var field=document.getElementById("user_id");
