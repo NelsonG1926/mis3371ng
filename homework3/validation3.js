@@ -227,7 +227,7 @@ function validateForm() {
     if (!validateUserID()) isValid = false;
     if (!validatePassword()) isValid = false;
     if (!validateVaccinated()) isValid = false;
-    if (!validInsurance()) isValid = false;
+    if (!validateInsurance()) isValid = false;
 
     if (isValid) {
         document.getElementById("submitBtn").style.display = "inline";
