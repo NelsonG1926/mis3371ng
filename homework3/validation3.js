@@ -226,6 +226,8 @@ function validateForm() {
     if (!validateZip()) isValid = false;
     if (!validateUserID()) isValid = false;
     if (!validatePassword()) isValid = false;
+    if (!validateVaccinated()) isValid = false;
+    if (!validInsurance()) isValid = false;
 
     if (isValid) {
         document.getElementById("submitBtn").style.display = "inline";
@@ -308,15 +310,35 @@ function validatePassword() {
     return true;
 }
 
-        
-            
-            
-            
-        
+function validateVaccinated() {
+    var vacBtns = document.getElementsByName("vaccinated");
+    var err = document.getElementById("vaccinatedError");
+    err.innerHTML = "";
 
-    
-    
-    
+    for (var i = 0; i < vacBtns.length; i++) {
+        if (vacBtns[i].checked) {
+            return true;
+        }
+    }
+    err.innerHTML = "Please select a vaccination status."
+    return false;
+}
+ function validateInsurance() {
+     var insBtns = document.getElementsByName("insurance");
+     var err = document.getElementById("insuranceError");
+     err.innerHTML= "";
+
+     for (var i = 0 ; i < insBtns.length; i++) {
+         if (insBtns[i].checked) {
+     return true;
+ }
+}
+err.innerHTML = "PLease select an insurance status."
+return false;
+}
+
+        
+         
         
 
 function checkUserID()  {
