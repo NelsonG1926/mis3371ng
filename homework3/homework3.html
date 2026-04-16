@@ -82,7 +82,8 @@ Description: Patient registration form-assignment3 for MIS 3371
         <td><input type="text" name="middle_initial" id="middle_initial" maxlength="1" title="Optional. One letter only, no numbers."
              style="width:30px;"
             pattern="[A-Za-z]"
-            placeholder="A">
+            placeholder="A"
+             onblur="validateMiddleInitial()">
         <span class="error-message" id="middleInitialError"></span>
         </td>
         </tr>
