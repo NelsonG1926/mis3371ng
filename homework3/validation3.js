@@ -136,6 +136,83 @@ function validatePhone() {
      return true; 
 }
 
+function validateAddress1() {
+    var address1 = document.getElementById("address1").value;
+    var err = document.getElementById("addressLine1Error");
+    err.innerHTML = "";
+    if (address1.length == 0) {
+        err.innerHTML = "Address line 1 is required.";
+        return false 
+    }
+    if (address1.length < 2 || address1.length > 30) {
+        err.innerHTML = "Address line 1 must be between 2 and 30 characters.";
+        return false;
+    }
+    return true;
+}
+
+function validateAddress2() {
+    var addrerss2 = document.getElementbyId("address2").value;
+    var err = document.getElementById("addressLine2Error");
+    err.innerHTML = "";
+    
+    if (address2.length == 0) {
+        return true; 
+    }
+    if (address2.length < 2 || address.length > 3o) {
+        err.innerHTML = "Address line 2 must be between 2 and 30 characters."
+        return false;
+    }
+    return true;
+}
+
+function validateCity() {
+    var city = document.getElementById("city").value;
+    var err = document.getElementById("cityError");
+    err.innerHTML = "";
+
+    if (city.length == 0) {
+        err.innerHTML = " City is required."
+        return false;
+    }
+    if (city.length < 2 || city.length > 30) {
+        err.innerHTML = "City must be between 2 and 30 characters."
+        return false;
+    }
+    return true;
+}
+
+function validateState () {
+    var state = document.getElementById("state").value;
+    var err = document.getElementbyId("stateError");
+    err.innerHMTL = "";
+
+    if (state == "") {
+        err.innerHTML = "Please select a state."
+        return false;
+    }
+    return true;
+}
+
+function validateZip () {
+    var zip = document.getElementById("zip").value;
+    var err = document.getElementById("zipError");
+    err.innerHTML = "";
+
+    if (zip == 0) }
+err.innerHTML = "Zip code is required.";
+return false;
+}
+ if (!/^\d{5}(-\d{4})?$/.test(zip)) {
+     err.innerHTML = "Zip code must be in 5 digit format or zip+4 format."
+     return false;
+ }
+return true;
+}
+
+    
+    
+    
         
 
 function checkUserID()  {
