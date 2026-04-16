@@ -44,6 +44,26 @@ function validateMiddleInitial() {
     }
     return true;
 }
+
+function validateLastName() {
+    var lastName = document.getElementById("last_name").value;
+    var err = document.getElementById("lastNameError");
+    err.innerHTML = "";
+   
+    if (lastName.length == 0) {
+        err.innerHTML = "Last name is required.";
+        return false
+    }
+    if (lastName.length > 30) {
+        err.innerHTML = "Last name is too long. Maximum of 30 characters."
+        return false
+    }
+    if (!/^[A-Za-z-]+$/.test(lastName)) {
+err.innerHTML = "Last Name can only contain letters and dashes.";
+return false;
+}
+return true;
+}
     
 
 function checkUserID()  {
