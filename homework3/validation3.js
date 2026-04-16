@@ -130,7 +130,7 @@ function validatePhone() {
         return false
     }
     if (!/^\d{3}-\d{3}-\d{4}$/.test(phone)) {
-        err.innerHTML = "Phone number must be in 123-456-6789 format."
+        err.innerHTML = "Phone number must be in 123-456-7890 format."
         return false
     }
      return true; 
