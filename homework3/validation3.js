@@ -224,6 +224,7 @@ function validateForm() {
     if (!validateCity()) isValid = false;
     if (!validateState()) isValid = false;
     if (!validateZip()) isValid = false;
+    if (!validateUserID()) isValid = false;
 
     if (isValid) {
         document.getElementById("submitBtn").style.display = "inline";
@@ -235,7 +236,37 @@ function validateForm() {
 function goToThankYou() {
     window.location.href = "thankyou.html";
 }
-    
+    function validateUserID() {
+        var userId = document.getElementById("user_id").value.trim();
+        var err = document.getElementById("userIdError");
+        err.innerHTML = "";
+
+        if (userId.length == 0) {
+            err.innerHTML = "User ID is required.";
+            return false;
+        }
+        if (userId[0] >='0' && userId [0] <= '9') {
+            err.innerHTML = "User ID cannot start with a number.";
+            return false;
+        }
+        if (userId.indexOf(" ") != -1) {
+            err.innerHTML = "User ID cannot contain any spaces."
+            return false;
+        }
+        if (userId.length < 5 || userId.length > 20) {
+            err.innerHTML = "User ID must be between 5 and 20 characters."
+            return false;
+        }
+        var allowed = /^[A-Za-z][A-Za-z0-9\-]*$/;
+        if (!allowed.test(userId)) {
+            err.innerHTML = " User ID can only contain letters, numbers, and dashes."
+            return false;
+        }
+        return true;
+    }
+            
+            
+        
 
     
     
