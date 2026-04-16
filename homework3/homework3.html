@@ -189,7 +189,7 @@ Description: Patient registration form-assignment3 for MIS 3371
                 <input type="text" name="address2" id="address2" maxlength="30" title="Optional. Apartment,suite, or unit number. If entered must be between 2 and 30 character."
                 pattern=".{2,30}"
                 placeholder="Apt 67A"
-                 oblur="validateAddress2()"> 
+                 onblur="validateAddress2()"> 
                 <span class="error-message" id="addressLine2Error"></span>
             </td>
         </tr>
@@ -206,7 +206,7 @@ Description: Patient registration form-assignment3 for MIS 3371
         <td class="form-label">State:*</td>
         <td>
          <select name="state" id="state" required title ="Select your state. You must select from the dropdown list."
-          onchage="validateState()">
+          onchange="validateState()">
 
             <option value="">Select State</option>
             <option value="AL">AL</option>
