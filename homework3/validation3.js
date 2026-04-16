@@ -10,7 +10,7 @@ function updatePainLevelValue(val) {
 }
 function validateFirstName() {
     var firstName = document.getElementById("first_name").value;
-    var err = document.getElementByID("firstNameError");
+    var err = document.getElementById("firstNameError");
 
     err.innerHTML = "";
 
@@ -20,11 +20,14 @@ function validateFirstName() {
     }
     if (firstName.length >30) {
         err.innerHTML = "First name is too long. Maximum of 30 characters."
+        return false;
     }
     if (!/^[A-Za-z-]+$/.test(firstName)) {
         err.innerHTML = "First name can only contain letters and dashes.";
-        return true;
+        return false;
     }
+    return true;
+}
 
 function checkUserID()  {
     var field=document.getElementById("user_id");
