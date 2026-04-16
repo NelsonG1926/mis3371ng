@@ -210,6 +210,33 @@ return false;
 return true;
 }
 
+function validateForm() {
+    var isValid = true;
+    if (!validateFirstName()) isValid = false;
+    if (!validateMiddleInitial()) isValid = false;
+    if (!validateLastName()) isValid = false;
+    if (!validateDOB()) isValid = false;
+    if (!validateSSN()) isValid = false;
+    if (!validateEmail()) isValid = false;
+    if (!validatePhone()) isValid = false;
+    if (!validateAddress1()) isValid = false;
+    if (!validateAddress2 ()) isValid = false; 
+    if (!validateCity()) isValid = false;
+    if (!validateState()) isValid = false;
+    if (!validateZip()) isValid = false;
+
+    if (isValid) {
+        document.getElementById("submitBtn").style.display = "inline";
+        alert("All fields are correct. You can now submit the form!"); } else {
+        document.getElementById("submitBtn").style.display = "none";
+        alert("Please fix the errors before submitting.");
+    }
+}
+function goToThankYou() {
+    window.location.href = "thankyou.html";
+}
+    
+
     
     
     
