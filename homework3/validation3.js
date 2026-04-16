@@ -8,6 +8,23 @@ Description: JavaScript functions for validating the patient registration form i
 function updatePainLevelValue(val) {
     document.getElementById("pain_display").innerHTML = val;
 }
+function validateFirstName() {
+    var firstName = document.getElementById("first_name").value;
+    var err = document.getElementByID("firstNameError");
+
+    err.innerHTML = "";
+
+    if (firstName.length == 0) {
+        err.innerHTML = "First name is required.";
+        return false;
+    }
+    if (firstName.length >30) {
+        err.innerHTML = "First name is too long. Maximum of 30 characters."
+    }
+    if (!/^[A-Za-z-]+$/.test(firstName)) {
+        err.innerHTML = "First name can only contain letters and dashes.";
+        return true;
+    }
 
 function checkUserID()  {
     var field=document.getElementById("user_id");
