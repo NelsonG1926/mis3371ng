@@ -149,7 +149,8 @@ Description: Patient registration form-assignment3 for MIS 3371
         maxlength="50"
         required title="Enter a valid email address. Example: name@domain.com"
         pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\.[a-zA-Z]{2,}"
-        placeholder="youremail@domain.com">
+        placeholder="youremail@domain.com"
+         onblur="validateEmail()">
         <span class="error-message" id="emailError"></span>
         </td>
 
