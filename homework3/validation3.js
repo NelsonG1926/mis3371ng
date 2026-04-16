@@ -29,6 +29,23 @@ function validateFirstName() {
     return true;
 }
 
+function validateMiddleInitial() {
+    var mi = document.getElementById("middle_initial").value;
+    var err = document.getElementById("middleInitialError");
+
+    err.innerHTML = "";
+
+    if (mi.length == 0) {
+        return true;
+    }
+    if (!/^[A-Za-z]$/.test(mi)) {
+        err.innerHTML = "Middle Initial must be one letter only.";
+        return false;
+    }
+    return true;
+}
+    
+
 function checkUserID()  {
     var field=document.getElementById("user_id");
     var errorMessage=document.getElementById("userIdError");
