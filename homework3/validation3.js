@@ -64,6 +64,31 @@ return false;
 }
 return true;
 }
+
+function validateDOB() {
+    var dob = document.getElementById("dob").value;
+    var err = document.getElementById("dateOfBirthError");
+    err.innerHTML = ""
+    if (dob == "") {
+        err.innerHTML = "Date of Birth is required."
+        return false
+    }
+    var dobDate = new Date (dob);
+    var today = new Date();
+    today.setHours(0,0,0,0);
+    
+    if (dobDate > today) {
+        err.innerHTML = " Date of Birth cannot be in the future.";
+        return false;
+    }
+    var oldest = new Date();
+    oldest.setFullYear(oldest.getFullYear() - 120);
+    if (dobDate < oldest) {
+    err.innerHTML = "Date of birth cannot be more than 120 years ago."
+    return false;
+}
+return true;
+}
     
 
 function checkUserID()  {
