@@ -152,14 +152,14 @@ function validateAddress1() {
 }
 
 function validateAddress2() {
-    var addrerss2 = document.getElementbyId("address2").value;
+    var address2 = document.getElementById("address2").value;
     var err = document.getElementById("addressLine2Error");
     err.innerHTML = "";
     
     if (address2.length == 0) {
         return true; 
     }
-    if (address2.length < 2 || address.length > 3o) {
+    if (address2.length < 2 || address2.length > 30) {
         err.innerHTML = "Address line 2 must be between 2 and 30 characters."
         return false;
     }
@@ -184,8 +184,8 @@ function validateCity() {
 
 function validateState () {
     var state = document.getElementById("state").value;
-    var err = document.getElementbyId("stateError");
-    err.innerHMTL = "";
+    var err = document.getElementById("stateError");
+    err.innerHTML = "";
 
     if (state == "") {
         err.innerHTML = "Please select a state."
@@ -199,7 +199,7 @@ function validateZip () {
     var err = document.getElementById("zipError");
     err.innerHTML = "";
 
-    if (zip == 0) }
+    if (zip.length == 0) {
 err.innerHTML = "Zip code is required.";
 return false;
 }
