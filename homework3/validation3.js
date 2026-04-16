@@ -105,6 +105,21 @@ function validateSSN() {
     }
     return true;
 }
+function validateEmail() {
+    var email = document.getElementById("email").value;
+    var err = document.getElementById("emailError");
+    err.innerHTML = "";
+
+    if (email.length == 0) {
+        err.innerHTML = "Email Address is required."; 
+        return false;
+    }
+    if (!/^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(email)) {
+        err.innerHTML = "Email adress must be in the name@domain.com format.";
+        return false;
+    }
+    return true;
+}
 
 function checkUserID()  {
     var field=document.getElementById("user_id");
