@@ -89,7 +89,22 @@ function validateDOB() {
 }
 return true;
 }
-    
+
+function validateSSN() {
+    var ssn = document.getElementById("ssn").value;
+    var err = document.getElementById("ssnError");
+    err.innerHTML = "";
+
+    if (ssn.length == 0) {
+        err.innerHTML = "Social security number is required.";
+        return false;
+    }
+    if (!/^\d{3}-\d{2}-\d{4}$/.test(ssn)) {
+        err.innerHTML = "SSN must be in the 123-45-6789 format.";
+        return false;
+    }
+    return true;
+}
 
 function checkUserID()  {
     var field=document.getElementById("user_id");
