@@ -225,6 +225,7 @@ function validateForm() {
     if (!validateState()) isValid = false;
     if (!validateZip()) isValid = false;
     if (!validateUserID()) isValid = false;
+    if (!validatePassword()) isValid = false;
 
     if (isValid) {
         document.getElementById("submitBtn").style.display = "inline";
@@ -264,6 +265,51 @@ function goToThankYou() {
         }
         return true;
     }
+
+function validatePassword() {
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirm_password").value;
+     var err = document.getElementById("passwordError");
+    var confirmErr = document.getElementById("confirmPasswordError");
+    err.innerHTML = "";
+
+    if (password.length == 0) {
+        err.innerHTML = "Password is required.";
+        return false;
+    }
+    if (password.length < 8) {
+        err.innerHTML = "Password must be at least 8 characters."
+        return false;
+    }
+        if (!/[A-Z]/.test(password)) {
+            err.innerHTML = "Password must contain least one uppercase letter."
+            return false;
+        }
+    if (!/[a-z]/.test(password)) {
+        err.innerHTML = "Password must contain at least one lowercase letter."
+        return false;
+    }
+    if (!/[0-9]/.test(password)) {
+        err.innerHTML = " Password must contain at least one number."
+        return false;
+    }
+    if (!/[!@#%^&*()\-_+=\\\/><.,`~]/.test(password)) {
+        err.innerHTML = "Password must contain at least one special character."
+        return false;
+    }
+    if (password.indexOf('"') != -1 || password.indexOf("'") != -1) {
+        err.innerHTML = "Password cannot contain qoutation marks.";
+        return false;
+    }
+    if (password != confirmPassword) {
+        confirmErr.innerHTML = "Passwords do not match."
+        return false;
+    }
+    return true;
+}
+
+        
+            
             
             
         
