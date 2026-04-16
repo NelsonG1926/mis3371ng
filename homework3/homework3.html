@@ -178,7 +178,8 @@ Description: Patient registration form-assignment3 for MIS 3371
             <td class="form-label">Address Line 1:*</td>
             <td><input type="text" name="address_line1" id="address1" maxlength="30" required title="Enter your street adress. Between 2 and 30 characters."
                 pattern=".{2,30}"
-                placeholder="123 Main St">
+                placeholder="123 Main St"
+                 onblur="validateAddress1()">
             <span class="error-message" id="addressLine1Error"></span>
             </td>
         
@@ -187,7 +188,8 @@ Description: Patient registration form-assignment3 for MIS 3371
             <td>
                 <input type="text" name="address2" id="address2" maxlength="30" title="Optional. Apartment,suite, or unit number. If entered must be between 2 and 30 character."
                 pattern=".{2,30}"
-                placeholder="Apt 67A">  
+                placeholder="Apt 67A"
+                 oblur="validateAddress2()"> 
                 <span class="error-message" id="addressLine2Error"></span>
             </td>
         </tr>
@@ -196,13 +198,15 @@ Description: Patient registration form-assignment3 for MIS 3371
             <td class="form-label">City:*</td>
             <td><input type="text" name="city" id="city" maxlength="30" required title="Enter your city name. Between 2 and 30 characters."
                 pattern=".{2,30}"
-                placeholder="Houston">
+                placeholder="Houston"
+                 onblur="validateCity()">
                 <span class="error-message" id="cityError"></span>
             </td>
 
         <td class="form-label">State:*</td>
         <td>
-         <select name="state" id="state" required title ="Select your state. You must select from the dropdown list.">
+         <select name="state" id="state" required title ="Select your state. You must select from the dropdown list."
+          onchage="validateState()">
 
             <option value="">Select State</option>
             <option value="AL">AL</option>
@@ -272,7 +276,8 @@ Description: Patient registration form-assignment3 for MIS 3371
         maxlength="10"
         required title="Enter your zip code. 5 digits or zip+4 format allowed."
         placeholder="12345 or 12345-6789"
-        pattern="\d{5}(-\d{4})?">
+        pattern="\d{5}(-\d{4})?"
+         onblur="validateZip()">
         <span class="error-message" id="zipError"></span>
     
 
