@@ -79,6 +79,7 @@ Description: Patient registration form-assignment3 for MIS 3371
        
       <td class="form-label">Middle Initial:</td>
         <td><input type="text" name="middle_initial" id="middle_initial" maxlength="1" title="Optional. One letter only, no numbers."
+             style="width:30px;"
             pattern="[A-Za-z]"
             placeholder="A">
         <span class="error-message" id="middleInitialError"></span>
@@ -89,7 +90,7 @@ Description: Patient registration form-assignment3 for MIS 3371
         <tr>
             <td class="form-label">Last Name:*</td>
             <td colspan="3">
-        <td><input type="text" name="last_name" id="last_name" maxlength="30" required title="Last Name is required. Letters, apostrophes, dashes allowed. NUmbers 2-5 ok for suffixes like the 'the third'. 1 to 30 characters."
+       <input type="text" name="last_name" id="last_name" maxlength="30" required title="Last Name is required. Letters, apostrophes, dashes allowed. NUmbers 2-5 ok for suffixes like the 'the third'. 1 to 30 characters."
             pattern="[A-Za-z'\-2-5]{1,30}"
             placeholder="Nelson">
         <span class="error-message" id="lastNameError"></span>
