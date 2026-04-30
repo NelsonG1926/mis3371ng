@@ -37,12 +37,26 @@ Description: Patient registration form-assignment4 for MIS 3371
         var minDateString = minDate.toISOString().split("T")[0];
         document.getElementById("dob").max = maxDate;
         document.getElementById("dob").min = minDateString;
+
+     function fetchHealthTip() {
+      fetch("https://api.quotable.io/random?tags=health|inspirational")
+      .then(function(response) {
+       return response.json();
+      })
+      .then(function(data) {
+       document.getElementById("tip_text").innerHTML = '"' + data.content + '"';
+       document.getElementById("tip_author").innerHTML = "- " + data.author;
+      })
+      .catch(function(error) {
+       document.getElementById("tip_text").innerHTML = "Stay healthy and take care of yourself.";
+      });
+            
     }
     </script>
     
     </head>
 
-    <body onload="displayDate(); setDateLimits();">
+    <body onload="displayDate(); setDateLimits(); fetchHealthTip();">
 
     <div id="header">
         <img src="medicallogo.png" alt="Medical Center Logo" width="50">
@@ -57,7 +71,13 @@ Description: Patient registration form-assignment4 for MIS 3371
     
 
     <h2> Basic Patient Information</h2>
-    <p> Fields marked with an asterisk (*) are required.</p>    
+    <p> Fields marked with an asterisk (*) are required.</p>
+         <div id="health_tip">
+          <h3> Health Tip of the Day</h3>
+          <p id = "tip_text"> Loading health tip...</p>
+           <p id = "tip_author"></p>
+         </div>
+         
 
     <form name="patientForm" onsubmit="return false;">
 
