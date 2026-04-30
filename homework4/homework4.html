@@ -39,13 +39,15 @@ Description: Patient registration form-assignment4 for MIS 3371
         document.getElementById("dob").min = minDateString;
     }
      function fetchHealthTip() {
-      fetch("https://api.quotable.io/random?tags=health|inspirational")
+      fetch("health_tips.json")
       .then(function(response) {
        return response.json();
       })
       .then(function(data) {
-       document.getElementById("tip_text").innerHTML = '"' + data.content + '"';
-      document.getElementById("tip_author").innerHTML = "- " + data.author;
+       var randomIndex = Math.floor(Math.random() * data.tips.length);
+       var tip = data.tips[randomIndex];
+       document.getElementById("tip_text").innerHTML = '"' + tip.tip + '"';
+      document.getElementById("tip_author").innerHTML = "- " + tip.author;
       })
       .catch(function(error) {
        document.getElementById("tip_text").innerHTML = "Stay healthy and take care of yourself.";
