@@ -37,7 +37,7 @@ Description: Patient registration form-assignment4 for MIS 3371
         var minDateString = minDate.toISOString().split("T")[0];
         document.getElementById("dob").max = maxDate;
         document.getElementById("dob").min = minDateString;
-
+    }
      function fetchHealthTip() {
       fetch("https://api.quotable.io/random?tags=health|inspirational")
       .then(function(response) {
