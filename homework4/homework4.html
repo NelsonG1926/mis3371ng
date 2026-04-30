@@ -45,12 +45,12 @@ Description: Patient registration form-assignment4 for MIS 3371
       })
       .then(function(data) {
        document.getElementById("tip_text").innerHTML = '"' + data.content + '"';
-       document.getElementById("tip_author").innerHTML = "- " + data.author;
+      document.getElementById("tip_author").innerHTML = "- " + data.author;
       })
       .catch(function(error) {
        document.getElementById("tip_text").innerHTML = "Stay healthy and take care of yourself.";
       });
-     }
+     
             
     }
     </script>
