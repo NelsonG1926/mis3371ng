@@ -16,7 +16,7 @@ Description: Patient registration form for MIS 3371 hw4
 }
 
 #header {
-    background-color: navy;
+    background-color: #001f5b;
     color: aliceblue;
     text-align: center;
     padding: 10px;
@@ -33,7 +33,7 @@ Description: Patient registration form for MIS 3371 hw4
 }
 
 #footer {
-  background-color: navy;  
+  background-color: #001f5b;  
   color: aliceblue;
   text-align: center;
   padding: 8px;
