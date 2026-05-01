@@ -46,8 +46,11 @@ function validateFirstName() {
         err.innerHTML = "First name can only contain letters and dashes.";
         return false;
     }
+    var rememberMe = document.getElementById("rememberMe");
+    if (rememberMe && rememberMe.checked) {
     setCookie("firstName", firstName, 48);
-    return true;
+    } else {
+        deleteCookie("firstName");
 }
 
 function validateMiddleInitial() {
