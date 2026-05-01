@@ -52,6 +52,8 @@ function validateFirstName() {
     } else {
         deleteCookie("firstName");
 }
+    return true;
+}
 
 function validateMiddleInitial() {
     var mi = document.getElementById("middle_initial").value;
