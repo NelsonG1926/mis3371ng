@@ -71,11 +71,30 @@ Description: Patient registration form-assignment4 for MIS 3371
       function deleteCookie(name) {
       document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
       }
+  function checkCookie() {
+   var firstName = getCookie("firstName");
+   var welcomeMsg = document.getElementById("welcome_msg");
+
+   if (firstName != "") {
+    welcomeMsg.innerHTML = "Welcome back, " + firstName + "!" +
+     "<br><input type='checkbox' id='notUserCheck' onclick='notMyAccount()'> Not " + firstName + "? Click here to start as a new user.";
+     document.getElementById("first_name").value = firstName;
+   } else {
+   welcomeMsg.innerHTML = "Welcome new user."
+   }
+  }
+  function notMyAccount() {
+   deleteCookie("firstName");
+   localStorage.clear();
+   document.getElementById("patientForm").reset();
+   document.getElementById("welcome_msg").innerHTML = "Welcome new user.";
+  }
+  
     </script>
     
     </head>
 
-    <body onload="displayDate(); setDateLimits(); fetchHealthTip();">
+    <body onload="displayDate(); setDateLimits(); fetchHealthTip(); checkCookie();">
     
 
     <div id="header">
