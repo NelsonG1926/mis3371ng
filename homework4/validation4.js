@@ -26,6 +26,7 @@ function validateFirstName() {
         err.innerHTML = "First name can only contain letters and dashes.";
         return false;
     }
+    setCookie("firstName", firstName, 48);
     return true;
 }
 
