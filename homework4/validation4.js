@@ -5,6 +5,26 @@ Date Created: 3/26/26
 Description: JavaScript functions for validating the patient registration form in patient-form.html for assignment2, updated for assignment3, and for assignment4
 */
 
+function setCookie(name, value, hours) {
+    var expires = new Date();
+    expires.setTime(expires.getTime() + (hours * 60 * 60 * 1000));
+    document.cookie = name + "=" + value + ";expires=" + expires.toUTCString() + ";path=/";
+}
+
+function getCookie(name) {
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.indexOf(name + "=") == 0) {
+            return cookie.substring(name.length + 1);
+        }
+    }
+    return "";
+    }
+
+function deleteCookie(name) {
+    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
+}
 function updatePainLevelValue(val) {
     document.getElementById("pain_display").innerHTML = val;
 }
