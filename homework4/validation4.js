@@ -763,5 +763,3 @@ function submitForm() {
     if (localStorage.getItem("fatigue") == "true") document.getElementsByName("feel_fatigue")[0].checked = true;
     if (localStorage.getItem("headache") == "true") document.getElementsByName("feel_headache")[0].checked = true;
 }
-
-}
