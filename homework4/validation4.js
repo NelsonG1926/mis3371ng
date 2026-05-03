@@ -714,6 +714,8 @@ function submitForm() {
     }
     alert("Thank you! The form has been submitted successfully!");
 
+}
+
     
     function loadFromLocalStorage() {
     var firstName = getCookie("firstName");
