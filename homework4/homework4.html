@@ -396,11 +396,11 @@ Description: Patient registration form-assignment4 for MIS 3371
  <tr>
     <td>Current Symptoms:</td>
     <td colspan="5">
-        <input type="checkbox" name="feel_fever" value="Y" title="Check this if you currently have a fever."> Fever
-        <input type="checkbox" name="feel_cough" value="Y" title="Check this if you currently have a cough."> Cough
-        <input type="checkbox" name="feel_shortness_of_breath" value="Y" title="Check this if you currently have shortness of breath."> Shortness of Breath
-        <input type="checkbox" name="feel_fatigue" value="Y" title="Check this if you currently have fatigue."> Fatigue
-        <input type="checkbox" name="feel_headache" value="Y" title="Check this if you currently have a headache."> Headache
+        <input type="checkbox" name="feel_fever" value="Y" title="Check this if you currently have a fever." onclick = "localStorage.setItem('fever', this.checked)"> Fever
+        <input type="checkbox" name="feel_cough" value="Y" title="Check this if you currently have a cough."  onclick = "localStorage.setItem('cough', this.checked)"> Cough
+        <input type="checkbox" name="feel_shortness_of_breath" value="Y" title="Check this if you currently have shortness of breath." onclick = "localStorage.setItem('shortnessOfBreath', this.checked)"> Shortness of Breath
+        <input type="checkbox" name="feel_fatigue" value="Y" title="Check this if you currently have fatigue." onclick = "localStorage.setItem('fatigue', this.checked)"> Fatigue
+        <input type="checkbox" name="feel_headache" value="Y" title="Check this if you currently have a headache."  onclick = "localStorage.setItem('headache', this.checked)"> Headache
         </td>
         </tr>
 
