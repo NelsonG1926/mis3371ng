@@ -5,6 +5,7 @@ Date Created: 3/26/26
 Description: JavaScript functions for validating the patient registration form in patient-form.html for assignment2, updated for assignment3, and for assignment4
 */
 
+
 function setCookie(name, value, hours) {
     var expires = new Date();
     expires.setTime(expires.getTime() + (hours * 60 * 60 * 1000));
