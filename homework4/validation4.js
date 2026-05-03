@@ -147,7 +147,7 @@ function validateEmail() {
         return false;
     }
     if (!/^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(email)) {
-        err.innerHTML = "Email adress must be in the name@domain.com format.";
+        err.innerHTML = "Email address must be in the name@domain.com format.";
         return false;
     }
     localStorage.setItem("email", email);
