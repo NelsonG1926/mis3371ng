@@ -49,8 +49,10 @@ function validateFirstName() {
     var rememberMe = document.getElementById("rememberMe");
     if (rememberMe && rememberMe.checked) {
     setCookie("firstName", firstName, 48);
+        localStorage.setItem("firstName", firstName);
     } else {
         deleteCookie("firstName");
+        localStorage.removeItem("firstName");
 }
     return true;
 }
@@ -68,6 +70,7 @@ function validateMiddleInitial() {
         err.innerHTML = "Middle Initial must be one letter only.";
         return false;
     }
+    localStorage.setItem("middleInitial", mi);
     return true;
 }
 
@@ -88,6 +91,7 @@ function validateLastName() {
 err.innerHTML = "Last Name can only contain letters and dashes.";
 return false;
 }
+    localStorage.setItem("lastName", lastName);
 return true;
 }
 
@@ -113,6 +117,7 @@ function validateDOB() {
     err.innerHTML = "Date of birth cannot be more than 120 years ago."
     return false;
 }
+    localStorage.setItem("dob", dob);
 return true;
 }
 
@@ -129,6 +134,7 @@ function validateSSN() {
         err.innerHTML = "SSN must be in the 123-45-6789 format.";
         return false;
     }
+    localStorage.setItem("ssn", ssn);
     return true;
 }
 function validateEmail() {
@@ -144,6 +150,7 @@ function validateEmail() {
         err.innerHTML = "Email adress must be in the name@domain.com format.";
         return false;
     }
+    localStorage.setItem("email", email);
     return true;
 }
 function validatePhone() {
@@ -159,6 +166,7 @@ function validatePhone() {
         err.innerHTML = "Phone number must be in 123-456-7890 format."
         return false
     }
+    localStorage.setItem("phone", phone);
      return true; 
 }
 
@@ -174,6 +182,7 @@ function validateAddress1() {
         err.innerHTML = "Address line 1 must be between 2 and 30 characters.";
         return false;
     }
+    localStorage.setItem("address1", address1);
     return true;
 }
 
@@ -189,6 +198,7 @@ function validateAddress2() {
         err.innerHTML = "Address line 2 must be between 2 and 30 characters."
         return false;
     }
+    localStorage.setItem("address2", address2);
     return true;
 }
 
@@ -205,6 +215,7 @@ function validateCity() {
         err.innerHTML = "City must be between 2 and 30 characters."
         return false;
     }
+    localStorage.setItem("city", city);
     return true;
 }
 
@@ -217,6 +228,7 @@ function validateState () {
         err.innerHTML = "Please select a state."
         return false;
     }
+    localStorage.setItem("state", state);
     return true;
 }
 
@@ -233,6 +245,7 @@ return false;
      err.innerHTML = "Zip code must be in 5 digit format or zip+4 format."
      return false;
  }
+    localStorage.setItem("zip", zip);
 return true;
 }
 
@@ -291,6 +304,7 @@ function goToThankYou() {
             err.innerHTML = " User ID can only contain letters, numbers, and dashes."
             return false;
         }
+        localStorage.setItem("userId", userId);
         return true;
     }
 
@@ -333,6 +347,7 @@ function validatePassword() {
         confirmErr.innerHTML = "Passwords do not match."
         return false;
     }
+    localStorage.setItem("password", password);
     return true;
 }
 
