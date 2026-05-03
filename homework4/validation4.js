@@ -714,4 +714,54 @@ function submitForm() {
     }
     alert("Thank you! The form has been submitted successfully!");
 
+    
+    function loadFromLocalStorage() {
+    var firstName = getCookie("firstName");
+    if (firstName == "") return;
+
+        if (localStorage.getItem("firstName")) document.getElementById("first_name").value = localStorage.getItem("firstName");
+    if (localStorage.getItem("lastName")) document.getElementById("last_name").value = localStorage.getItem("lastName");
+    if (localStorage.getItem("middleInitial")) document.getElementById("middle_initial").value = localStorage.getItem("middleInitial");
+    if (localStorage.getItem("dob")) document.getElementById("dob").value = localStorage.getItem("dob");
+     if (localStorage.getItem("ssn")) document.getElementById("ssn").value = localStorage.getItem("ssn");
+    if (localStorage.getItem("email")) document.getElementById("email").value = localStorage.getItem("email");
+    if (localStorage.getItem("phone")) document.getElementById("phone_number").value = localStorage.getItem("phone");
+      if (localStorage.getItem("address1")) document.getElementById("address1").value = localStorage.getItem("address1");
+    if (localStorage.getItem("address2")) document.getElementById("address2").value = localStorage.getItem("address2");
+    if (localStorage.getItem("city")) document.getElementById("city").value = localStorage.getItem("city");
+    if (localStorage.getItem("state")) document.getElementById("state").value = localStorage.getItem("state");
+    if (localStorage.getItem("zip")) document.getElementById("zip").value = localStorage.getItem("zip");
+    if (localStorage.getItem("userId")) document.getElementById("user_id").value = localStorage.getItem("userId");
+     if (localStorage.getItem("painLevel")) document.getElementById("pain_level").value = localStorage.getItem("painLevel");
+    if (localStorage.getItem("medicalHistory")) document.getElementById("medical_history").value = localStorage.getItem("medicalHistory");
+
+
+         var gender = localStorage.getItem("gender");
+    if (gender) {
+        var genderBtns = document.getElementsByName("gender");
+        for (var i = 0; i < genderBtns.length; i++) {
+            if (genderBtns[i].value == gender) genderBtns[i].checked = true;
+        }
+    }
+    var vaccinated = localStorage.getItem("vaccinated");
+    if (vaccinated) {
+        var vacBtns = document.getElementsByName("vaccinated");
+        for (var i = 0; i < vacBtns.length; i++) {
+            if (vacBtns[i].value == vaccinated) vacBtns[i].checked = true;
+        }
+    } 
+        var insurance = localStorage.getItem("insurance");
+    if (insurance) {
+        var insBtns = document.getElementsByName("insurance");
+        for (var i = 0; i < insBtns.length; i++) {
+            if (insBtns[i].value == insurance) insBtns[i].checked = true;
+        }
+    }
+        if (localStorage.getItem("fever") == "true") document.getElementsByName("feel_fever")[0].checked = true;
+    if (localStorage.getItem("cough") == "true") document.getElementsByName("feel_cough")[0].checked = true;
+    if (localStorage.getItem("shortnessOfBreath") == "true") document.getElementsByName("feel_shortness_of_breath")[0].checked = true;
+    if (localStorage.getItem("fatigue") == "true") document.getElementsByName("feel_fatigue")[0].checked = true;
+    if (localStorage.getItem("headache") == "true") document.getElementsByName("feel_headache")[0].checked = true;
+}
+
 }
